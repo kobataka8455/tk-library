@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <script>
+      function updateDateTime() {
+        const now = new Date();
+        const year = now.getFullYear().toString();
+        const month = ('0' + (now.getMonth() + 1)).slice(-2);
+        const day = ('0' + now.getDate()).slice(-2);
+        const hours = ('0' + now.getHours()).slice(-2);
+        const minutes = ('0' + now.getMinutes()).slice(-2);
+        const seconds = ('0' + now.getSeconds()).slice(-2);
+        const milliseconds = ('00' + now.getMilliseconds()).slice(-3);
+
+        const spans = document.querySelectorAll('#sample span');
+        const dateTimeString = year + month + day + hours + minutes + seconds + milliseconds;
+
+        spans.forEach((span, index) => {
+          span.textContent = dateTimeString[index];
+        });
+      }
+
+      setInterval(updateDateTime, 1);
+    </script>
+  </head>
+  <body onload="updateDateTime()">
+    <div id="sample">
+      <span>Y</span>
+      <span>Y</span>
+      <span>Y</span>
+      <span>Y</span>
+      <span>M</span>
+      <span>M</span>
+      <span>D</span>
+      <span>D</span>
+      <span>H</span>
+      <span>H</span>
+      <span>M</span>
+      <span>M</span>
+      <span>S</span>
+      <span>S</span>
+      <span>m</span>
+      <span>m</span>
+      <span>m</span>
+      <span>m</span>
+    </div>
+  </body>
+</html>
